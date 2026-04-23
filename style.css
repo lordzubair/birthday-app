@@ -141,3 +141,134 @@ button:hover {
 .open .lid {
     transform: rotate(-25deg) translateY(-40px);
 }
+
+.gift-container {
+    margin-top: 120px;
+    text-align: center;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+/* 3D Box */
+.gift-box {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: auto;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+/* Main box */
+.box {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #ff4b7d, #ff7eb3);
+    border-radius: 12px;
+    box-shadow: 
+        0 15px 30px rgba(0,0,0,0.4),
+        inset -5px -5px 10px rgba(255,255,255,0.2);
+}
+
+/* Lid */
+.lid {
+    position: absolute;
+    width: 100%;
+    height: 45px;
+    background: linear-gradient(145deg, #ff6a95, #ff8fb5);
+    top: -30px;
+    border-radius: 12px;
+    transform-origin: bottom;
+    transition: 0.6s;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+/* Ribbon vertical */
+.ribbon-vertical {
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    border-radius: 10px;
+}
+
+/* Ribbon horizontal */
+.ribbon-horizontal {
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    background: #fff;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    border-radius: 10px;
+}
+
+/* Glow effect */
+.gift-box::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3), transparent);
+    border-radius: 12px;
+    opacity: 0.5;
+}
+
+/* OPEN ANIMATION */
+.gift-box.open {
+    transform: rotateX(10deg) rotateY(-10deg) scale(1.05);
+}
+
+.gift-box.open .lid {
+    transform: rotateX(-120deg) translateY(-20px);
+}
+
+/* Ribbon animation */
+.gift-box.open .ribbon-vertical,
+.gift-box.open .ribbon-horizontal {
+    animation: ribbonFall 0.8s forwards;
+}
+
+@keyframes ribbonFall {
+    to {
+        transform: translateY(80px);
+        opacity: 0;
+    }
+}
+
+#endingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s ease;
+    z-index: 999;
+}
+
+#endingScreen.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.ending-text {
+    max-width: 400px;
+    animation: fadeInText 3s ease;
+}
+
+@keyframes fadeInText {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
