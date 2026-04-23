@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #3a3a5f);
+    color: white;
+    text-align: center;
+}
+
+/* Center content */
+.container {
+    padding: 40px 20px;
+}
+
+/* Headings */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Message */
+p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Premium button */
+button {
+    margin-top: 20px;
+    padding: 12px 28px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff4b7d, #ff7eb3);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255, 75, 125, 0.4);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Glass card effect */
+.card {
+    background: rgba(255,255,255,0.1);
+    padding: 25px;
+    margin: 20px auto;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    max-width: 350px;
+}
+
+/* Slideshow */
+.slideshow-container {
+    position: relative;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+.slide {
+    width: 100%;
+    display: none;
+    border-radius: 15px;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev { left: 5px; }
+.next { right: 5px; }
+
+.slide {
+    width: 100%;
+    display: none;
+    border-radius: 15px;
+    animation: fade 1s;
+}
+
+@keyframes fade {
+    from { opacity: 0.4 }
+    to { opacity: 1 }
+}
+
+#typingName::after {
+    content: "|";
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+#typingName {
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #ff7eb3, #ff4b7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

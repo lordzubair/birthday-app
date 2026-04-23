@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Birthday 🎂</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+   <div class="container">
+
+    <div class="card">
+        <h1 id="typingName"></h1>
+        <p>
+            You’re not just special… you’re unforgettable.  
+            I’m really lucky to have you in my life.
+            Have a great and even better year ahead.
+        </p>
+    </div>
+
+    <!-- Slideshow -->
+    <!-- <div class="slideshow-container">
+        <img class="slide" src="images/img1.jpg">
+        <img class="slide" src="images/img2.jpg">
+        <img class="slide" src="images/img3.jpg">
+
+        <button class="prev" onclick="changeSlide(-1)">❮</button>
+        <button class="next" onclick="changeSlide(1)">❯</button>
+    </div> -->
+
+    <button onclick="startConfettiRain(), showSurprise()">Celebrate 🎉</button>
+
+</div> 
+
+
+<script>
+function showSurprise() {
+    // Confetti blast 🎉
+    confetti({
+        particleCount: 150,
+        spread: 100,
+        origin: { y: 0.6 }
+    });
+
+    // Extra bursts for effect
+    setTimeout(() => confetti({ particleCount: 100, spread: 120 }), 300);
+    setTimeout(() => confetti({ particleCount: 200, spread: 140 }), 600);
+
+    alert("Once again... Happy Birthday! 🎂💖");
+}
+</script>
+<script>
+window.onload = () => {
+    setTimeout(() => {
+        confetti({
+            particleCount: 200,
+            spread: 120,
+            origin: { y: 0.6 }
+        });
+    }, 500);
+};
+</script>
+<script>
+function startConfettiRain() {
+    const duration = 3 * 1000;
+    const end = Date.now() + duration;
+
+    (function frame() {
+        confetti({
+            particleCount: 5,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 }
+        });
+        confetti({
+            particleCount: 5,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 }
+        });
+
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
+        }
+    })();
+}
+</script>
+<!-- <script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let slides = document.getElementsByClassName("slide");
+    
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+
+    slides[slideIndex - 1].style.display = "block";
+
+    setTimeout(showSlides, 3000); // auto change every 3 sec
+}
+
+function changeSlide(n) {
+    slideIndex += n - 1;
+    showSlides();
+}
+</script> -->
+<script>
+let nameText = "Happy Birthday, Irtu ❤️.";
+let index = 0;
+
+function typeName() {
+    if (index < nameText.length) {
+        document.getElementById("typingName").innerHTML += nameText.charAt(index);
+        index++;
+        setTimeout(typeName, 60);
+    }
+}
+
+window.onload = () => {
+    typeName();
+
+    // Optional: confetti on load
+    setTimeout(() => {
+        confetti({
+            particleCount: 150,
+            spread: 120,
+            origin: { y: 0.6 }
+        });
+    }, 800);
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</body>
+</html>
